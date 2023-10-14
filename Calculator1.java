@@ -8,17 +8,21 @@ class Calculator1 extends Frame implements ActionListener
 	Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,bplus,bminus,bmul,bdiv,bmod,bclear,bback,bneg,bpts,bequal;
 	TextField t1;
 	double num1,num2,check,xd;
-
+    
+	//Using Constructor
 	Calculator1()
 	{
+		//Adding a frame
 		f = new Frame("Calculator");
 		f.setBackground(Color.black);
 
+		//Adding a text field
 		t1 = new TextField();
 		t1.setFont(new Font("Arial",Font.BOLD,35));
 		t1.setBounds(10,35,398,150);
 		f.add(t1);
 
+		//Adding numeric buttons
 		b0 = new Button("0");
 		b0.setBackground(Color.black);
 		b0.setForeground(Color.white);
@@ -99,6 +103,7 @@ class Calculator1 extends Frame implements ActionListener
 		f.add(b9);
 		b9.addActionListener(this);
 
+		//Adding other buttons
 		bpts = new Button(".");
 		bpts.setBackground(Color.black);
 		bpts.setForeground(Color.yellow);
@@ -115,6 +120,31 @@ class Calculator1 extends Frame implements ActionListener
 		f.add(bequal);
 		bequal.addActionListener(this);
 
+		bneg = new Button("+/-");
+		bneg.setBackground(Color.black);
+		bneg.setForeground(Color.yellow);
+		bneg.setFont(new Font("Arial",Font.BOLD,20));
+		bneg.setBounds(110,190,100,100);
+		f.add(bneg);
+		bneg.addActionListener(this);
+		
+		bback = new Button("Back");
+		bback.setBackground(Color.black);
+		bback.setForeground(Color.yellow);
+		bback.setFont(new Font("Arial",Font.BOLD,20));
+		bback.setBounds(10,190,100,100);
+		f.add(bback);
+		bback.addActionListener(this);
+
+		bclear = new Button("C");
+		bclear.setBackground(Color.black);
+		bclear.setForeground(Color.yellow);
+		bclear.setFont(new Font("Arial",Font.BOLD,20));
+		bclear.setBounds(310,190,100,100);
+		f.add(bclear);
+		bclear.addActionListener(this);
+
+		//Adding arithmetic buttons
 		bplus = new Button("+");
 		bplus.setBackground(Color.black);
 		bplus.setForeground(Color.yellow);
@@ -155,30 +185,6 @@ class Calculator1 extends Frame implements ActionListener
 		f.add(bmod);
 		bmod.addActionListener(this);
 
-		bneg = new Button("+/-");
-		bneg.setBackground(Color.black);
-		bneg.setForeground(Color.yellow);
-		bneg.setFont(new Font("Arial",Font.BOLD,20));
-		bneg.setBounds(110,190,100,100);
-		f.add(bneg);
-		bneg.addActionListener(this);
-
-		bback = new Button("Back");
-		bback.setBackground(Color.black);
-		bback.setForeground(Color.yellow);
-		bback.setFont(new Font("Arial",Font.BOLD,20));
-		bback.setBounds(10,190,100,100);
-		f.add(bback);
-		bback.addActionListener(this);
-
-		bclear = new Button("C");
-		bclear.setBackground(Color.black);
-		bclear.setForeground(Color.yellow);
-		bclear.setFont(new Font("Arial",Font.BOLD,20));
-		bclear.setBounds(310,190,100,100);
-		f.add(bclear);
-		bclear.addActionListener(this);
-
 		f.setBounds(450,80,420,700);
 		f.setLayout(null);
 		f.setResizable(false);
@@ -189,6 +195,7 @@ class Calculator1 extends Frame implements ActionListener
 	public void actionPerformed(ActionEvent ae)
 	{ 
   		String z,zt; 
+		//Adding action to numberic buttons
 		if(ae.getSource()==b1)
 		{
  			zt=t1.getText();
@@ -250,6 +257,7 @@ class Calculator1 extends Frame implements ActionListener
   			t1.setText(z);
 		}
 
+		//Adding action to other buttons
 		if(ae.getSource()==bpts)
 		{  
   			zt=t1.getText();
@@ -268,8 +276,8 @@ class Calculator1 extends Frame implements ActionListener
   			zt=t1.getText();
   			try
 			{
-    				z=zt.substring(0, zt.length()-1);
-    			}
+    			z=zt.substring(0, zt.length()-1);
+    		}
 			catch(StringIndexOutOfBoundsException f)
 			{
 				return;
@@ -278,18 +286,18 @@ class Calculator1 extends Frame implements ActionListener
 		}
 
 
-                
+		//Adding action to arithmetic buttons
 		if(ae.getSource()==bplus)
 		{                    
   			try
 			{
-    				num1=Double.parseDouble(t1.getText());
-    			}
+    			num1=Double.parseDouble(t1.getText());
+    		}
 			catch(NumberFormatException f)
 			{
-      				t1.setText("Invalid Format");
-      				return;
-    			}
+      			t1.setText("Invalid Format");
+      			return;
+    		}
   			z="";
   			t1.setText(z);
   			check=1;
@@ -299,13 +307,13 @@ class Calculator1 extends Frame implements ActionListener
 		{                    
   			try
 			{
-    				num1=Double.parseDouble(t1.getText());
-    			}
+    			num1=Double.parseDouble(t1.getText());
+    		}
 			catch(NumberFormatException f)
 			{
-      				t1.setText("Invalid Format");
-      				return;
-    			}
+      			t1.setText("Invalid Format");
+    			return;
+			}
   			z="";
   			t1.setText(z);
   			check=2;
@@ -315,13 +323,13 @@ class Calculator1 extends Frame implements ActionListener
 		{                   
   			try
 			{
-    				num1=Double.parseDouble(t1.getText());
-    			}
+    			num1=Double.parseDouble(t1.getText());
+    		}
 			catch(NumberFormatException f)
 			{
-      				t1.setText("Invalid Format");
-      				return;
-    			}
+      			t1.setText("Invalid Format");
+    			return;
+			}
   			z="";
   			t1.setText(z);
   			check=3;
@@ -331,13 +339,13 @@ class Calculator1 extends Frame implements ActionListener
 		{                   
   			try
 			{
-    				num1=Double.parseDouble(t1.getText());
-    			}
+				num1=Double.parseDouble(t1.getText());
+    		}
 			catch(NumberFormatException f)
 			{
-      				t1.setText("Invalid Format");
-      				return;
-    			}
+  				t1.setText("Invalid Format");
+    			return;
+			}
   			z="";
   			t1.setText(z);
   			check=4;
@@ -347,13 +355,13 @@ class Calculator1 extends Frame implements ActionListener
 		{                  
   			try
 			{
-		    		num1=Double.parseDouble(t1.getText());
-	    		}
+		    	num1=Double.parseDouble(t1.getText());
+	    	}
 			catch(NumberFormatException f)
 			{
-      				t1.setText("Invalid Format");
-      				return;
-    			}
+      			t1.setText("Invalid Format");
+    			return;
+			}
   			z="";
   			t1.setText(z);
   			check=5;
@@ -364,22 +372,22 @@ class Calculator1 extends Frame implements ActionListener
   			try
 			{
     			num2=Double.parseDouble(t1.getText());
-    			}
+    		}
 			catch(Exception f)
 			{
-      				t1.setText("ENTER NUMBER FIRST ");
-      				return;
-    			}
+      			t1.setText("ENTER NUMBER FIRST ");
+    			return;
+			}
   			if(check==1)
-    				xd =num1+num2;
+    			xd =num1+num2;
   			if(check==2)
-    				xd =num1-num2;
+    			xd =num1-num2;
   			if(check==3)
-    				xd =num1*num2;
+    			xd =num1*num2;
   			if(check==4)
-    				xd =num1/num2; 
+    			xd =num1/num2; 
   			if(check==5)
-    				xd =num1%num2;    
+    			xd =num1%num2;    
   			t1.setText(String.valueOf(xd));
 		}
                         
